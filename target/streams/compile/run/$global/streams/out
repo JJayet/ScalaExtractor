@@ -1,0 +1,32 @@
+[0m[[0minfo[0m] [0mRunning ExtractorService [0m
+[0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0m  Classpath:[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/Documents/Dev/ScalaExtractor/target/scala-2.11/classes[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/com.beachape.filemanagement/schwatcher_2.11/jars/schwatcher_2.11-0.1.8.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/jars/akka-actor_2.11-2.3.9.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/io.reactivex/rxscala_2.11/jars/rxscala_2.11-0.23.1.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/io.reactivex/rxjava/jars/rxjava-1.0.4.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/jonathanjayet/.ivy2/cache/org.apache.pdfbox/pdfbox-app/bundles/pdfbox-app-2.0.0-SNAPSHOT.jar[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main-0 to terminate.[0m
+[0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread actorSystem-akka.actor.default-dispatcher-3 to terminate.[0m
+[0m[[0mdebug[0m] [0m	Thread actorSystem-akka.actor.default-dispatcher-3 exited.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread actorSystem-akka.actor.default-dispatcher-4 to terminate.[0m
+[0m[[31merror[0m] [0m(WatchService) java.lang.NullPointerException[0m
+java.lang.NullPointerException
+	at sun.nio.fs.UnixPath.toUnixPath(UnixPath.java:198)
+	at sun.nio.fs.UnixPath.resolve(UnixPath.java:397)
+	at sun.nio.fs.UnixPath.resolve(UnixPath.java:43)
+	at com.beachape.filemanagement.WatchServiceTask.contextAbsolutePath(WatchServiceTask.scala:107)
+	at com.beachape.filemanagement.WatchServiceTask$$anonfun$run$1.apply(WatchServiceTask.scala:44)
+	at com.beachape.filemanagement.WatchServiceTask$$anonfun$run$1.apply(WatchServiceTask.scala:42)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:742)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1194)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at com.beachape.filemanagement.WatchServiceTask.run(WatchServiceTask.scala:42)
+	at java.lang.Thread.run(Thread.java:745)
+[0m[[0mdebug[0m] [0m	Thread actorSystem-akka.actor.default-dispatcher-4 exited.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread actorSystem-scheduler-1 to terminate.[0m
