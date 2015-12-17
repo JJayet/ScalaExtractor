@@ -18,7 +18,7 @@ object ExtractorService {
 
     val outputPath = args.headOption match {
       case Some(x) => x
-      case None => "/Users/jonathanjayet/Desktop/TestDecoupe/blabla"
+      case None => "~/Desktop/PDFs/out"
     }
 
     val modifyCallbackDirectory: Callback = {
@@ -30,18 +30,18 @@ object ExtractorService {
         println("Now converting to image")
         Extractor.PdfExtractor.convertPageToJpeg(x.toString)
         println("Done converting to image")
-        println("Now extracting text")
-        Extractor.PdfExtractor.extractTextFromFile(x.toString)
-        println("Done extracting text")
-        println("Now extracting images")
-        Extractor.PdfExtractor.extractImagesFromFile(x.toString)
-        println("Done extracting images")
+//        println("Now extracting text")
+//        Extractor.PdfExtractor.extractTextFromFile(x.toString)
+//        println("Done extracting text")
+//        println("Now extracting images")
+//        Extractor.PdfExtractor.extractImagesFromFile(x.toString)
+//        println("Done extracting images")
 
         println(s"------- Done treating $x -------")
       case _ =>
     }
 
-    val desktop = Paths get "/Users/jonathanjayet/Desktop"
+    val desktop = Paths get "~/Desktop/PDFs"
 
     fileMonitorActor ! RegisterCallback(
       ENTRY_MODIFY,
