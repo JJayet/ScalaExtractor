@@ -16,11 +16,16 @@ object ExtractorService {
     implicit val system = ActorSystem("actorSystem")
     val fileMonitorActor = system.actorOf(MonitorActor())
 
+    val outputPath = args.headOption match {
+      case Some(x) => x
+      case None => "/Users/jonathanjayet/Desktop/TestDecoupe/blabla"
+    }
+
     val modifyCallbackDirectory: Callback = {
       case x if (x.toString.endsWith(".pdf")) =>
         println(s"------- Treating $x -------")
         println("Now splitting by page")
-        Extractor.PdfExtractor.splitPdfByPage(x.toString)
+        Extractor.PdfExtractor.splitPdfByPage(x.toString, outputPath)
         println("Done splitting by page")
         println("Now converting to image")
         Extractor.PdfExtractor.convertPageToJpeg(x.toString)

@@ -6,8 +6,8 @@ import org.apache.pdfbox.tools.{ExtractImages, PDFToImage, ExtractText, PDFSplit
  * Created by jonathanjayet on 01/07/15.
  */
 object PdfExtractor {
-  def splitPdfByPage(fileName: String) = {
-    PDFSplit.main(Array(fileName, "-outputPrefix", "/Users/jonathanjayet/Desktop/TestDecoupe/blabla"))
+  def splitPdfByPage(fileName: String, outputPath : String) = {
+    PDFSplit.main(Array(fileName, "-outputPrefix", outputPath))
   }
 
   def convertPageToJpeg(fileName: String) = {
