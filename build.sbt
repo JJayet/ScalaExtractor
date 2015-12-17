@@ -10,4 +10,4 @@ resolvers += "ApacheSnapshot" at "https://repository.apache.org/content/groups/s
 
 libraryDependencies += "com.beachape.filemanagement" %% "schwatcher" % "0.1.8"
 
-libraryDependencies += "org.apache.pdfbox" % "pdfbox-app" % "2.0.0-SNAPSHOT"
+libraryDependencies += "org.apache.pdfbox" % "pdfbox-app" % "2.0.0-RC2"
