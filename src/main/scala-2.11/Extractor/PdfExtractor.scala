@@ -10,8 +10,8 @@ object PdfExtractor {
     PDFSplit.main(Array(fileName, "-outputPrefix", outputPath))
   }
 
-  def convertPageToJpeg(fileName: String) = {
-    PDFToImage.main(Array(fileName))
+  def convertPageToJpeg(fileName: String, outputPath : String) = {
+    PDFToImage.main(Array(fileName, "-outputPrefix", outputPath))
   }
 
   def extractTextFromFile(fileName: String) = {

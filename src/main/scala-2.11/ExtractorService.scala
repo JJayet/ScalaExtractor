@@ -15,20 +15,27 @@ object ExtractorService {
   def main(args: Array[String]) = {
     implicit val system = ActorSystem("actorSystem")
     val fileMonitorActor = system.actorOf(MonitorActor())
-
-    val outputPath = args.headOption match {
-      case Some(x) => x
-      case None => "~/Desktop/PDFs/out"
-    }
+    val home_path = System.getProperty("user.home")
+    val watch_dir = Paths get (home_path + "/Desktop/PDFs")
+//    val outputPath = args.headOption match {
+//      case Some(x) => x
+//      case None => home_path + "/Desktop/PDFs"
+//    }
 
     val modifyCallbackDirectory: Callback = {
       case x if (x.toString.endsWith(".pdf")) =>
         println(s"------- Treating $x -------")
+
+        val pdf_dir = x.toString.dropRight(4) + "/pdf/"
+        val jpg_dir = x.toString.dropRight(4) + "/jpg/"
+        new java.io.File(pdf_dir).mkdirs
+        new java.io.File(jpg_dir).mkdirs
+
         println("Now splitting by page")
-        Extractor.PdfExtractor.splitPdfByPage(x.toString, outputPath)
+        Extractor.PdfExtractor.splitPdfByPage(x.toString, pdf_dir)
         println("Done splitting by page")
         println("Now converting to image")
-        Extractor.PdfExtractor.convertPageToJpeg(x.toString)
+        Extractor.PdfExtractor.convertPageToJpeg(x.toString, jpg_dir)
         println("Done converting to image")
 //        println("Now extracting text")
 //        Extractor.PdfExtractor.extractTextFromFile(x.toString)
@@ -41,13 +48,11 @@ object ExtractorService {
       case _ =>
     }
 
-    val desktop = Paths get "~/Desktop/PDFs"
-
     fileMonitorActor ! RegisterCallback(
       ENTRY_MODIFY,
       None,
       recursive = false,
-      path = desktop,
+      path = watch_dir,
       modifyCallbackDirectory)
   }
 }
