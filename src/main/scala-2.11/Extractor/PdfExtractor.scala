@@ -11,7 +11,11 @@ object PdfExtractor {
   }
 
   def convertPageToJpeg(fileName: String, outputPath : String) = {
-    PDFToImage.main(Array(fileName, "-outputPrefix", outputPath))
+    PDFToImage.main(Array("-outputPrefix", outputPath, fileName))
+  }
+
+  def convertPageToPng(fileName: String, outputPath : String) = {
+    PDFToImage.main(Array("-imageType", "png", "-outputPrefix",  outputPath, fileName))
   }
 
   def extractTextFromFile(fileName: String) = {

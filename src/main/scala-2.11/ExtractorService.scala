@@ -28,14 +28,17 @@ object ExtractorService {
 
         val pdf_dir = x.toString.dropRight(4) + "/pdf/"
         val jpg_dir = x.toString.dropRight(4) + "/jpg/"
+        val png_dir = x.toString.dropRight(4) + "/png/"
         new java.io.File(pdf_dir).mkdirs
         new java.io.File(jpg_dir).mkdirs
+        new java.io.File(png_dir).mkdirs
 
         println("Now splitting by page")
         Extractor.PdfExtractor.splitPdfByPage(x.toString, pdf_dir)
         println("Done splitting by page")
         println("Now converting to image")
         Extractor.PdfExtractor.convertPageToJpeg(x.toString, jpg_dir)
+        Extractor.PdfExtractor.convertPageToPng(x.toString, png_dir)
         println("Done converting to image")
 //        println("Now extracting text")
 //        Extractor.PdfExtractor.extractTextFromFile(x.toString)
